@@ -1,0 +1,16 @@
+data path,./data
+limit,False
+features,fbank
+num original features,40
+num total features,121
+delta,True
+dominant frequency,True
+noise,False
+beginning silence removal,True
+timesteps,5
+context window,5
+num classes,2
+time stamp,2020y11m10d18h32m33s
+duration in minutes,7.13
+Class with fewer samples,Mexico
+max number of samples per class,1417
