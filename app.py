@@ -123,7 +123,7 @@ def analisis():
         #        path_file = os.path.join(path, file)
         #        Drive.Upload(index,path_file,'Otro',db_id)
         register = query.find_one({"_id":db_id})
-        shutil.rmtree(path)
+        shutil.rmtree('test/{}'.format(str(id)))
         return  parse_json(register)
     return "Analisis de Auidos..."
 
@@ -158,11 +158,12 @@ def upload_file():
                 R.resamplig(path_file)
                 Drive.Upload(index,path_file,User['country'],id)
 
-        shutil.rmtree(path)
+        shutil.rmtree('audios/{}'.format(str(id)))
         register = query.find_one({"_id":id})
         return  parse_json(register)
     return "Upload Files..."
 
 if __name__ == '__main__':
-    http_server = WSGIServer(('', 5000), app)
-    http_server.serve_forever()
+    app.run(host='0.0.0.0', port=80)
+    #http_server = WSGIServer(('', 5000), app)
+    #http_server.serve_forever()

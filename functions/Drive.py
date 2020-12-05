@@ -2,6 +2,17 @@ from pydrive.auth import GoogleAuth
 from pydrive.drive import GoogleDrive
 
 gauth = GoogleAuth('settings/Drive.yaml')
+#gauth.LocalWebserverAuth()
+
+gauth.LoadCredentialsFile("credentials.txt")
+
+if gauth.access_token_expired:
+    gauth.Refresh()
+else:
+    gauth.Authorize()
+
+gauth.SaveCredentialsFile("credentials.txt")
+
 drive = GoogleDrive(gauth)
 
 def Upload(index,file,folder,id):
