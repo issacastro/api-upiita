@@ -1,0 +1,11 @@
+#/etc/nginx/sites-enabled/upiita
+server{
+	listen 80;
+	server_name 35.239.225.221;
+
+	location / {	
+		proxy_pass http://localhost:8000;
+		include /etc/nginx/proxy_params;
+		proxy_redirect off;
+		}
+}
